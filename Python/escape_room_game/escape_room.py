@@ -90,10 +90,10 @@ def escape_room():
   t3 = 3
   print 'Before we start, do you want to speed the game up?'
   print 'Be Careful: Speeding things up will make things really fast!'
-  print ' '
+  print
   sleep(t2)
   speed_choice = raw_input('Hit enter to keep things normal. To speed up type: yes ')
-  print ' '
+  print
   if speed_choice == 'yes':
     t1=0
     t2=0
@@ -101,7 +101,7 @@ def escape_room():
     print 'Ok...things are going to be fast!'
   else:
     print 'OK, we will keep things at normal speed.'
-  print ' '
+  print
   sleep(t1)
   while door_unlocked == False:
     #this happens every time.
@@ -109,32 +109,32 @@ def escape_room():
     raw_input('Press enter to look around the room')
     room_look = sorted(room_look)
     sleep(t1)
-    print ' '
-    print ' '
+    print
+    print
     print '######################################################'
     print 'You can the see: '
-    print ' '
+    print
     for i in room_look:
-      print ' ' + i
-    print ' '
+      print ' '+ i
+    print
     if len(inventory)>1:
       print 'You are holding: '
-      print ' '
+      print
       for i in inventory:
-        print ' '+i
-      print ' '
+        print' '+i
+      print
     elif len(inventory)==1:
       if inventory[0][0] in 'aeiou':
-        print ' '
+        print
         print 'You are holding an ' + ''.join(inventory)
       else:
         print 'You are holding a ' + ''.join(inventory)
-      print ' '
+      print
     else:
       print 'You aren\'t holding anything'
-      print ' '
+      print
     if first_miss == 1:
-      print ' '
+      print
       print 'Your options are: '+'/'.join(acceptable_choices)
     choice = raw_input('What do you want to do? ')
     sleep(t1)
@@ -142,7 +142,7 @@ def escape_room():
 
     #wrong choice creates an error and restarts the loop
     if choice not in acceptable_choices:
-      print ' '
+      print
       sleep(t1)
       if first_miss == 0:
         first_miss +=1
@@ -168,11 +168,11 @@ Try again!
     #user decides to end the loop
     #this stops the game
     elif choice == 'stop':
-      print ' '
+      print
       sleep(t1)
       print 'Ok ok...I\'ll unlock the door for you'
       sleep(t3)
-      print ' '
+      print
       door_unlocked = True
       print 'The lock turns...'
       sleep(t2)
@@ -183,103 +183,102 @@ Try again!
 
     #user searches
     elif choice == 'search':
-      print ' '
+      print
       print 'You can see the following: '
       print  ' '
       for i in room_look:
-        print ' '+i
-      print ' '
+        print' '+i
+      print
       search_choice = raw_input('What do you want to search? ')
-      print ' '
+      print
       sleep(t1)
       print 'You search the '+search_choice
-      print ' '
+      print
       sleep(t2)
       if search_choice not in room_look:
         print 'You don\'t see that'
-        print ' '
+        print
       else:
-        if search_choice not in search_dict.keys() or search_dict[search_choice] in removed_objects_list:
+        if search_choice not in search_dict.keys() or search_dict[search_choice] in removed_objects_list or search_dict[search_choice] in room_look:
           print 'You don\'t find anything new'
-          print ' '
+          print
         else:
           discovery = search_dict[search_choice]
-          del search_dict[search_choice]
           if discovery[0] in 'aeiou':
             print 'You find an ' + discovery
-            print ' '
+            print
           else:
             print 'You find a ' + discovery
-          print ' '
+          print
           sleep(t1)
           room_look.append(discovery)
           if discovery in possible_inventory_items:
             inventory.append(discovery)
             print 'You pick up the ' + discovery
-            print ' '
+            print
             sleep(t2)
 
     #user examines
     elif choice == 'examine':
-      print ' '
+      print
       print 'You can see the following: '
-      print ' '
+      print
       for i in room_look:
-        print ' '+i
-      print ' '
+        print' '+i
+      print
       examine_choice = raw_input('What would you like to examine? ')
-      print ' '
+      print
       print 'You take a moment to examine the '+examine_choice
-      print ' '
+      print
       sleep(t2)
       if examine_choice not in room_look:
         print 'You couldn\'t find that'
-        print ' '
+        print
       else:
         ' '
-        print ' '
+        print
         sleep(t1)
         print examine_dict[examine_choice]
         sleep(t2)
-        print ' '
+        print
 
     #user chooses to use something
     elif choice == 'use':
-      print ' '
+      print
       if len(inventory) == 0:
         print 'You aren\'t holding anything'
-        print ' '
+        print
         sleep(t1)
       else:
         if len(inventory)==1:
           print 'You are holding: ' + ''.join(inventory)
-          print ' '
+          print
           sleep(t1)
         else:
           print 'You are holding: '
-          print ' '
+          print
           for i in inventory:
-            print ' '+i
-          print ' '
+            print' '+i
+          print
           sleep(t1)
         inv_choice = raw_input('What would you like to use? ')
-        print ' '
+        print
         if inv_choice not in inventory:
           print 'Sorry, you don\'t have that available to use'
-          print ' '
+          print
           sleep(t1)
         else:
-          print ' '
+          print
           print 'You can see the following: '
-          print ' '
+          print
           for i in room_look:
-            print ' '+i
-          print ' '
+            print' '+i
+          print
           sleep(t1)
           use_choice = raw_input('What would you like to use the ' + inv_choice + ' on? ')
           if use_choice not in room_look:
             print 'Sorry, you don\'t see that'
-            print ' '
+            print
           else:
 
             ##these are ALL the different ways objects can be used along with their consequences
@@ -288,19 +287,19 @@ Try again!
             if inv_choice == 'key' and use_choice == 'lock':
               door_unlocked = True
               sleep(t2)
-              print ' '
+              print
               print 'You insert the key into the lock...'
-              print ' '
+              print
               sleep(t3)
               print 'The lock turns...'
               sleep(t2)
-              print ' '
+              print
               print hard_ending
 
 
             #'normal' escape room things
             elif inv_choice == 'complicated puzzle' and use_choice == 'table':
-              print ' '
+              print
               room_look.remove('complicated puzzle')
               inventory.remove('complicated puzzle')
               removed_objects_list.append('complicated puzzle')
@@ -308,71 +307,75 @@ Try again!
               inventory.append('solved puzzle')
               examine_dict['solved puzzle'] = 'After working on the puzzle for almost an hour...you finally solve it! It says you need to \'define Escape\'...'
               print examine_dict['solved puzzle']
-              print ' '
+              print
               sleep(t1)
               print 'You now have a solved puzzle'
-              print ' '
+              print
             elif inv_choice == 'axe' and use_choice == 'emergency axe cabinet':
+              print
               print 'You gently place the axe back in the cabinet'
+              print
+              sleep(t1)
               print 'That\'s probably for the best..what were you going to use it on anyway..the door?'
-              print ' '
+              print
+              sleep(t1)
               search_dict['emergency axe cabinet']='axe'
               inventory.remove('axe')
               room_look.remove('axe')
 
             #unusal situations I'm providing some text for
             elif inv_choice == use_choice:
-              print ' '
+              print
               print 'Using the %s on itself....creative...but not effective' %(inv_choice)
-              print ' '
+              print
               sleep(t1)
             elif inv_choice == 'key' and use_choice in ['door','damaged door','severely damaged door']:
-              print ' '
+              print
               print 'Hm...maybe if you searched the door you might find a lock?'
-              print ' '
+              print
               sleep(t1)
             elif inv_choice == 'complicated puzzle' and use_choice != 'table':
-              print ' '
+              print
               print 'Trying using the puzzles at the table'
-              print ' '
+              print
               sleep(t1)
             elif inv_choice == 'complicated puzzle' and use_choice == 'table remains':
-              print ' '
+              print
               print 'The table has been destroyed...you won\'t be able to work on the puzzle now'
-              print ' '
+              print
               sleep(t1)
             elif inv_choice == 'solved puzzle' and use_choice == 'table':
-              print ' '
+              print
               print 'There is no more work to do on the puzzle...it says you need to find a dictionary for the word \'Escape\''
-              print ' '
+              print
               sleep(t2)
 
             #axe 'trying' to destroy things
             #needs to be ontop of the axe destroying things section
             elif inv_choice == 'axe' and use_choice in ['lock','key']:
-              print ' '
+              print
               print 'The axe doesn\'t make a dent in the strong '+ use_choice
-              print ' '
+              print
               sleep(t1)
               print '...I guess you could always try using the axe on something else...wait...hold on...'
-              print ' '
+              print
               sleep(t1)
 
             #axe destroying things
             elif inv_choice == 'axe' and use_choice == 'table':
-              print ' '
+              print
               print 'You have successfully...destroyed the table...and anything that was on it'
-              print ' '
+              print
               sleep(t1)
               room_look.remove('table')
               removed_objects_list.append('table')
               room_look.append('table remains')
               examine_dict['table remains'] = 'The table is just a pile of wood now...'
-              print ' '
+              print
               print 'You can now see the remains of the table...'
-              print ' '
+              print
             elif inv_choice == 'axe' and use_choice == 'bookcase':
-              print ' '
+              print
               print 'You have successfully...destroyed the bookcase'
               sleep(t1)
               room_look.remove('bookcase')
@@ -380,35 +383,37 @@ Try again!
               room_look.append('bookcase remains')
               examine_dict['bookcase remains'] = 'The bookcase is in now in pieces...with most of the books destroyed...'
               search_dict['bookcase remains'] = 'suspicious dictionary'
-              print ' '
+              print
               print 'You can now see the remains of the bookcase...'
-              print ' '
+              print
               sleep(t1)
             elif inv_choice == 'axe' and use_choice == 'suspicious dictionary':
-              print ' '
+              print
               print 'You have successfully...destroyed the suspicious looking dictionary'
+              print
+              sleep(t1)
               room_look.remove('suspicious dictionary')
               removed_objects_list.append('suspicious dictionary')
               if search_dict[use_choice] not in inventory:
                 room_look.append(search_dict[use_choice])
-                print ' '
+                print
                 print 'You have found the '+ search_dict[use_choice]
-                print ' '
+                print
                 sleep(t1)
                 inventory.append(search_dict[use_choice])
                 print 'You have picked up the ' + search_dict[use_choice]
-                print ' '
+                print
                 sleep(t1)
               print 'The suspicious dictionary has been completely destroyed...'
-              print ' '
+              print
 
 
             #the axe destroying the door - alternate ending
             elif inv_choice == 'axe' and use_choice == 'door':
-              print ' '
+              print
               print 'The door is damaged'
               sleep(t1)
-              print ' '
+              print
               print'''
 
 ###################################################################
@@ -427,7 +432,7 @@ Now...why don't we put down the axe and go back to solving puzzles?
             elif inv_choice == 'axe' and use_choice == 'damaged door':
               print 'The door is REALLY damaged'
               sleep(t1)
-              print ' '
+              print
               print'''
 
 ##############################################################
@@ -459,47 +464,47 @@ With one final strike, what little is left of the door finally crumbles before y
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 '''
               sleep(t1)
-              print ' '
+              print
               finalmessage = ''
               finalmessage = raw_input('What do you say once the door finally falls? ')
               sleep(t1)
-              print ' '
+              print
               if finalmessage == '':
                 print 'Nothing more needs to be said...you have won'
               else:
                 print 'With a triumphant grin you declare: \'' + finalmessage +'\''
-              print ' '
+              print
               sleep(t2)
               print '...well...you were technically supposed to UNLOCK the door...'
-              print ' '
+              print
               sleep(t1)
               print 'but...ya...sure...ya that works...'
-              print ' '
+              print
               sleep(t1)
               print hard_ending
 
             #axe destroying anything else
             #needs to be on bottom
             elif inv_choice == 'axe' and use_choice in room_look:
-              print ' '
+              print
               room_look.remove(use_choice)
               if use_choice in inventory:
                 inventory.remove(use_choice)
               removed_objects_list.append(use_choice)
               print 'You have successfully...destroyed the ' + use_choice
-              print ' '
+              print
               sleep(t1)
               print 'The '+ use_choice + 'is completely destroyed'
               sleep(t1)
               print 'I hope you didn\'t need that'
-              print ' '
+              print
               sleep(t2)
 
             #anything else done gets the generic text
             else:
-              print ' '
+              print
               print 'That doesn\'t seem to do anything'
-              print ' '
+              print
               sleep(t1)
 
 escape_room()
