@@ -1,6 +1,8 @@
 # Escape Room
 
-This fun little text game I built mostly through simple logic patterns.
+This fun little text game I built mostly through simple logic patterns.  
+
+You can play the game here: https://repl.it/@wswalker/EscapeRoom
 
 *Technical Overview*
 From a technical perspective, it largely makes use of:
