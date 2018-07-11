@@ -12,7 +12,7 @@ It takes a few inputs 'look', 'use'
 The goal is to find the key to escape the room
 '''
 
-#function to try and escape to room
+#function to try and escape the room
 def escape_room():
 
   ##These are some things that will never change throughout the game
