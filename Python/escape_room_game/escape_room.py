@@ -43,7 +43,7 @@ def escape_room():
   #The keys in this dictionary should include all possible starting inventory and room_look items
   examine_dict= {
     'table':'A wooden table.  Great for solving puzzles.  It would likely shatter with a little force...I mean...why would that ever happen....'
-    ,'door': 'A strudy wooden door.  It has many fine engravings on it\'s surface. Whoever created this must care about it a lot'
+    ,'door': 'A sturdy wooden door...you could probably search it for a lock.  The door has many fine engravings on it\'s surface. Whoever created this must care about it a great deal'
     ,'lock':'A shiny iron lock in the door.  It looks very strong.  You will need to find the key to open it!'
     ,'key':'A shiny steel key gilded with stands of gold on its edges.  You found it!  Now open the door!'
     ,'axe':'A fire axe...this isn\'t part of the game.  It\'s only for emergencies...what are you thinking of doing....'
@@ -71,16 +71,22 @@ def escape_room():
   '''
   sleep(5)
   print'''
-  #####################################################
+  #############################################################
   Oh! One more thing...
 
   ...there's an axe in the room...
 
-  It's not part of the game...I haven't gotten around
-  to taking it out yet. So just avoid it for now!
+  We keep it in the room for emergencies ONLY
+  Now don't go getting any ideas...this is an Escape Room!
+
+  Escape Rooms are all about structure aren't they?
+  They're about critical thinking...precision...and puzzles!!
+  ...not about hacking your way through your challenges...
+
+  Now...let's just forget about the axe and have some fun!
 
   Good luck!
-  ######################################################
+  #############################################################
 
   '''
   sleep(4)
@@ -323,7 +329,7 @@ Try again!
               inventory.remove('axe')
               room_look.remove('axe')
 
-            #unusal situations I'm providing some text for
+            #unusual situations I'm providing some text for
             elif inv_choice == use_choice:
               print
               print 'Using the %s on itself....creative...but not effective' %(inv_choice)
@@ -331,12 +337,12 @@ Try again!
               sleep(t1)
             elif inv_choice == 'key' and use_choice in ['door','damaged door','severely damaged door']:
               print
-              print 'Hm...maybe if you searched the door you might find a lock?'
+              print 'Hm...maybe if you searched the door, you might find a lock?'
               print
               sleep(t1)
             elif inv_choice == 'complicated puzzle' and use_choice != 'table':
               print
-              print 'Trying using the puzzles at the table'
+              print 'Try using the puzzles at the table'
               print
               sleep(t1)
             elif inv_choice == 'complicated puzzle' and use_choice == 'table remains':
@@ -351,7 +357,7 @@ Try again!
               sleep(t2)
 
             #axe 'trying' to destroy things
-            #needs to be ontop of the axe destroying things section
+            #needs to be on top of the axe destroying things section
             elif inv_choice == 'axe' and use_choice in ['lock','key']:
               print
               print 'The axe doesn\'t make a dent in the strong '+ use_choice
