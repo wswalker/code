@@ -10,6 +10,7 @@ From a technical perspective, the game largely makes use of:
 * If/elif/else statements based on user input
 * While/for loops (the whole game is one giant While loop)
 * Lists/Dictionaries which dynamically update as needed
+* Available in .py and .ipynb (jupyter notebook) formats
 
 *Creative Overview*
 
