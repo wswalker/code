@@ -76,11 +76,11 @@ def escape_room():
 
   ...there's an axe in the room...
 
-  We keep it in the room for emergencies ONLY
-  Now don't go getting any ideas...this is an Escape Room!
+  It's kept in the room for emergencies
+  Now...don't go getting any ideas...this is an Escape Room
 
-  Escape Rooms are all about structure aren't they?
-  They're about critical thinking...precision...and puzzles!!
+  Escape Rooms are all about puzzles aren't they?
+  They're about critical thinking...deduction...and structure!
   ...not about hacking your way through your challenges...
 
   Now...let's just forget about the axe and have some fun!
@@ -89,7 +89,7 @@ def escape_room():
   #############################################################
 
   '''
-  sleep(4)
+  sleep(10)
   #used by sleep function to slow down the game
   t1 = 1
   t2 = 2
@@ -433,7 +433,7 @@ Now...why don't we put down the axe and go back to solving puzzles?
               room_look.remove('door')
               removed_objects_list.append('door')
               room_look.append('damaged door')
-              examine_dict['damaged door'] = 'This door has a massive hole where the axe had landed...'
+              examine_dict['damaged door'] = 'This door has a massive hole where the axe had landed...if you\'re lucky you might still be able to search it for a lock'
               search_dict['damaged door'] = 'lock'
             elif inv_choice == 'axe' and use_choice == 'damaged door':
               print 'The door is REALLY damaged'
@@ -452,7 +452,7 @@ about this whole 'destroying the door with an axe' business
               room_look.remove('damaged door')
               removed_objects_list.append('damaged door')
               room_look.append('severely damaged door')
-              examine_dict['severely damaged door'] = 'What is left of this door...if one could still consider it a door...is damaged beyond repair'
+              examine_dict['severely damaged door'] = 'What is left of this door...if one could still consider it a door...is damaged beyond repair...perhaps...through a thorough search of the splintered wood...you just might find a lock'
               search_dict['severely damaged door'] = 'lock'
             elif inv_choice == 'axe' and use_choice == 'severely damaged door':
               door_unlocked = True
