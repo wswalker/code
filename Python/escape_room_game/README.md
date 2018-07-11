@@ -17,4 +17,4 @@ From a technical perspective, the game largely makes use of:
 As a big fan of escape rooms, I really enjoyed coding this.  Although I initially tried to make it a route, standard, highly structured escape room game, I decided, instead, to parody the usual escape room tropes.  The player is often rewarded by subverting the game's expectations and I've gone to considerable lengths to ensure the game will still function despite the player thinking divergently.
 
 
-![Escape Room](escape_room.jpeg)
+![Escape Room](picture.jpeg)
