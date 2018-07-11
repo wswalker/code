@@ -7,9 +7,9 @@ from time import sleep
 # Escape Room Program
 #-------------------------------------
 '''
-This program is a simple escape room
-It takes a few inputs 'look', 'use'
-The goal is to find the key to escape the room
+This program is a simple text-based escape room game
+It takes a few inputs such as 'search' and 'use'
+The goal is to unlock the door to escape the room
 '''
 
 #function to try and escape the room
