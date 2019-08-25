@@ -2,7 +2,7 @@
 
 This is a fun little text game I built mostly through simple logic patterns in Python.  
 
-You can play the game here: https://repl.it/@wswalker/EscapeRoom
+You can play the game here: https://repl.it/@wswalker/Escape-Room
 
 *Technical Overview*
 
